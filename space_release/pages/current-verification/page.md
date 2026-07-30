@@ -2,7 +2,7 @@
 
 This page supersedes the verifier preserved as **Historical rejected
 baseline**. The exact scientific revision is
-`b55e4b89209a75104c53bf56e3ee53c6843dec90`.
+`0b244ce29d127cec8dcacc481c19d61c7278e00a`.
 
 ## Fixed command and pinned environment
 
@@ -16,9 +16,9 @@ uv run python reproduction/run_all.py
 - `pyproject.toml` SHA-256:
   `b98f078394dbe4f2fc0ce2f8771ceff5a1a113a2e7e761b5bd7680d51812db96`
 - Seed `260302607`
-- OpenResearch run `167a3642-d164-40e6-827a-651f42cc2911`
+- OpenResearch run `20f41602-dfe5-459c-b839-db1dc3518dd2`
 - Local CPU; estimated 1 core; BLAS cap 1 thread; 8 logical CPUs visible
-- Verifier runtime `1.584271625` seconds; orchestration duration 5 seconds
+- Verifier runtime `1.372549875` seconds; orchestration duration 5 seconds
 - Cost `$0`
 
 Executable sources are stored in this Space:
@@ -52,7 +52,14 @@ and [negative-control output](https://huggingface.co/spaces/DineshAI/Kk5UZgkWFx/
 {
   "passed": true,
   "failures": [],
-  "negative_control_tampered_evidence_rejected": true
+  "all_tampered_evidence_rejected": true,
+  "negative_controls": {
+    "claim_1": "overlap 0 -> 1: rejected",
+    "claim_2": "sin2 1 -> 0: rejected",
+    "claim_3": "overlap 1 -> 2: rejected",
+    "claim_4": "rare mass delta/(4n) -> 1/2: rejected",
+    "claim_5": "support 8 -> 7: rejected"
+  }
 }
 ```
 

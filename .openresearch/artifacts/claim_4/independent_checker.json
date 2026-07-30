@@ -1,5 +1,5 @@
 {
-  "run_id": "167a3642-d164-40e6-827a-651f42cc2911",
+  "run_id": "20f41602-dfe5-459c-b839-db1dc3518dd2",
   "passed": true,
   "failures": [],
   "checks": [
@@ -15,5 +15,13 @@
     "unconditional success < 1-delta",
     "r <= d",
     "formal Theorem 2 not claimed contradicted"
-  ]
+  ],
+  "negative_controls": {
+    "claim_1": "support overlap changed from 0 to 1; rejected",
+    "claim_2": "orthogonality sin2 changed from 1 to 0; rejected",
+    "claim_3": "support overlap changed from 1 to 2; rejected",
+    "claim_4": "rare-event mass changed from delta/(4n) to 1/2; rejected",
+    "claim_5": "dense support count changed from 8 to 7; rejected"
+  },
+  "all_tampered_evidence_rejected": true
 }

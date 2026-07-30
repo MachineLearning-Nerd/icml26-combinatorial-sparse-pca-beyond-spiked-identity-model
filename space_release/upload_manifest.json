@@ -35,6 +35,8 @@
     {"source": ".openresearch/artifacts/claim_4/limitations_and_deviations.md", "destination": "evidence_current/claim4_limitations.md"},
     {"source": ".openresearch/artifacts/claim_4/command_environment.md", "destination": "evidence_current/claim4_command_environment.md"},
     {"source": ".openresearch/artifacts/claim_4/EVAL.md", "destination": "evidence_current/claim4_EVAL.md"},
+    {"source": ".openresearch/audit/command_log.md", "destination": "evidence_current/command_log.md"},
+    {"source": ".openresearch/audit/prepublication_red_team.md", "destination": "evidence_current/prepublication_red_team.md"},
     {"source": "space_release/SHA256SUMS.txt", "destination": "SHA256SUMS.txt"}
   ]
 }

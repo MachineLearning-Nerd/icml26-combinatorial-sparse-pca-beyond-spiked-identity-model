@@ -15,7 +15,7 @@ choice of the hidden asymptotic constants. Formal Theorem 2 is not
 contradicted: it contains the omitted `(σ²/λ₁)²` sample factor.
 
 Compute was local CPU with a one-thread cap because the complete cumulative
-verifier took 1.584 seconds. Two non-spherical positive-calibration attempts
+verifier took 1.373 seconds. Two non-spherical positive-calibration attempts
 were correctly routed to Hugging Face `cpu-upgrade`; both stopped before
 scientific execution because the default image lacked `uv`, so they are not
 used as evidence.
@@ -33,7 +33,7 @@ used as evidence.
 | [`orx/rtpm-adversarial-model-2-calibration`](https://github.com/MachineLearning-Nerd/icml26-repro-Kk5UZgkWFx-combinatorial-sparse-pca-beyond-the-spiked-identity-model/tree/orx/rtpm-adversarial-model-2-calibration) | Exact RTPM on adversarial Model 2 | `uv run python reproduction/run_all.py` | Environmental failure before science (`uv` absent) | HF `cpu-upgrade`, 8-core estimate |
 | [`orx/rtpm-rotated-model-2-calibration`](https://github.com/MachineLearning-Nerd/icml26-repro-Kk5UZgkWFx-combinatorial-sparse-pca-beyond-the-spiked-identity-model/tree/orx/rtpm-rotated-model-2-calibration) | Exact RTPM on rotated Model 2 | `uv run python reproduction/run_all.py` | Environmental failure before science (`uv` absent) | HF `cpu-upgrade`, 8-core estimate |
 | [`orx/claim-4-rare-signal-quantifier-audit`](https://github.com/MachineLearning-Nerd/icml26-repro-Kk5UZgkWFx-combinatorial-sparse-pca-beyond-the-spiked-identity-model/tree/orx/claim-4-rare-signal-quantifier-audit) | Proof-certificate falsification and cumulative regression | `uv run python reproduction/run_all.py` | Claim 4 FALSIFIED; Claims 1,2,3,5 VERIFIED; tamper control rejected | Local CPU, 1 thread, 1.584 s verifier |
-| [`orx/cumulative-release-candidate`](https://github.com/MachineLearning-Nerd/icml26-repro-Kk5UZgkWFx-combinatorial-sparse-pca-beyond-the-spiked-identity-model/tree/orx/cumulative-release-candidate) | Evidence packaging and release regression | `uv run python reproduction/run_all.py` | Pending final cumulative run | Local CPU, 1 thread |
+| [`orx/cumulative-release-candidate`](https://github.com/MachineLearning-Nerd/icml26-repro-Kk5UZgkWFx-combinatorial-sparse-pca-beyond-the-spiked-identity-model/tree/orx/cumulative-release-candidate) | Evidence packaging and release regression | `uv run python reproduction/run_all.py` | All five claim-specific tamper controls rejected; cumulative suite passed | Local CPU, 1 thread, 1.373 s verifier |
 
 The previous live judge score remains **9/10**. A possible **10/10** is a
 forecast pending a new live evaluation, not a claimed score.

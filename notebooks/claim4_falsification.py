@@ -139,10 +139,10 @@ def _(mo):
         ```
 
         Scientific revision:
-        `b55e4b89209a75104c53bf56e3ee53c6843dec90`.
+        `0b244ce29d127cec8dcacc481c19d61c7278e00a`.
         The cumulative verifier reran Claims 1, 2, 3, and 5, checked this
         certificate independently, and rejected a deliberately corrupted
-        rare-event mass. Runtime was 1.584 seconds on local CPU with one BLAS
+        rare-event mass. Runtime was 1.373 seconds on local CPU with one BLAS
         thread. Seed `260302607` is recorded; this proof itself is deterministic.
         """
     )

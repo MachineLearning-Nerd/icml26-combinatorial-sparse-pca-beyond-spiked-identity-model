@@ -1,6 +1,6 @@
 {
-  "run_id": "167a3642-d164-40e6-827a-651f42cc2911",
-  "git_sha": "b55e4b89209a75104c53bf56e3ee53c6843dec90",
+  "run_id": "20f41602-dfe5-459c-b839-db1dc3518dd2",
+  "git_sha": "0b244ce29d127cec8dcacc481c19d61c7278e00a",
   "claims": [
     {
       "claim": 1,
@@ -46,6 +46,6 @@
     }
   ],
   "independent_checker_passed": true,
-  "tamper_control_rejected": true,
-  "runtime_seconds": 1.5842716250335798
+  "all_five_tamper_controls_rejected": true,
+  "runtime_seconds": 1.3725498749990948
 }

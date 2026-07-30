@@ -1,8 +1,8 @@
 # Command and environment
 
 - Fixed command: `uv run python reproduction/run_all.py`
-- Scientific Git SHA: `b55e4b89209a75104c53bf56e3ee53c6843dec90`
-- Run: `167a3642-d164-40e6-827a-651f42cc2911`
+- Scientific Git SHA: `0b244ce29d127cec8dcacc481c19d61c7278e00a`
+- Run: `20f41602-dfe5-459c-b839-db1dc3518dd2`
 - Seed: `260302607`
 - Environment manager: `uv`, one repository-level `.venv`
 - Python: `3.12.11`
@@ -15,6 +15,6 @@
 - Selected compute: local, one CPU core
 - Actual allocation control: BLAS thread cap 1
 - Logical CPUs visible to process: 8
-- Verifier runtime: 1.584271625 seconds
+- Verifier runtime: 1.372549875 seconds
 - OpenResearch orchestration duration: 5 seconds
 - Cost: $0

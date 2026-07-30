@@ -65,8 +65,8 @@ formal sample bound. The result is deliberately scoped:
 | 5 | Deflation can make the next top vector fully dense | support equals `d` for `d=8,12,20` | VERIFIED |
 
 The independent checker recomputed the rational probability inequalities and
-all Model-2 audits. A negative control changed the nonzero mass from
-`δ/(4n)` to `1/2`; the checker rejected the certificate.
+all Model-2 audits. Five claim-specific negative controls corrupted one
+decisive metric per claim; the checker rejected every tamper.
 
 ## Implementation and reproducibility
 
@@ -77,14 +77,14 @@ uv run python reproduction/run_all.py
 ```
 
 The winning scientific revision is
-`b55e4b89209a75104c53bf56e3ee53c6843dec90`. The environment pins Python
+`0b244ce29d127cec8dcacc481c19d61c7278e00a`. The environment pins Python
 3.12 and NumPy 2.3.2 in `uv.lock`. Seed `260302607` is recorded, although the
 Claim 4 proof is deterministic.
 
-The formal run used local CPU because it was bounded to one core and completed
-in 1.584 seconds. BLAS was capped to one thread; eight logical CPUs were
-visible. OpenResearch run:
-`167a3642-d164-40e6-827a-651f42cc2911`. Cost: `$0`.
+The formal release run used local CPU because it was bounded to one core and
+completed in 1.373 seconds. BLAS was capped to one thread; eight logical CPUs
+were visible. OpenResearch run:
+`20f41602-dfe5-459c-b839-db1dc3518dd2`. Cost: `$0`.
 
 The two earlier positive-calibration branches were routed to Hugging Face
 `cpu-upgrade`, but the default image lacked `uv` and failed before scientific

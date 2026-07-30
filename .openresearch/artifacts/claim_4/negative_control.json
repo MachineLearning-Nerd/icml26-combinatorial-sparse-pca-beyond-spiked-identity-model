@@ -1,8 +1,31 @@
 {
-  "name": "tampered rare-event mass",
-  "mutation": "instances[0].distribution.total_nonzero_probability = 1/2",
-  "expected": "independent checker rejects",
-  "observed": "rejected",
-  "passed": true,
-  "run_id": "167a3642-d164-40e6-827a-651f42cc2911"
+  "run_id": "20f41602-dfe5-459c-b839-db1dc3518dd2",
+  "all_tampered_evidence_rejected": true,
+  "controls": [
+    {
+      "claim": 1,
+      "mutation": "set first support overlap from 0 to 1",
+      "observed": "rejected"
+    },
+    {
+      "claim": 2,
+      "mutation": "set first orthogonality sin2 from 1 to 0",
+      "observed": "rejected"
+    },
+    {
+      "claim": 3,
+      "mutation": "set first support overlap from 1 to 2",
+      "observed": "rejected"
+    },
+    {
+      "claim": 4,
+      "mutation": "change rare-event mass from delta/(4n) to 1/2",
+      "observed": "rejected"
+    },
+    {
+      "claim": 5,
+      "mutation": "set first dense support count from 8 to 7",
+      "observed": "rejected"
+    }
+  ]
 }
