@@ -1,30 +1,31 @@
 {
-  "stage": "claim4_calibration",
+  "stage": "claim4_falsification",
   "seed": 260302607,
   "compute_plan": {
-    "estimated_cores": 8,
-    "selected_backend": "hf",
-    "selected_flavor": "cpu-upgrade",
-    "expected_runtime_minutes": "2-15 (uncertain)"
+    "estimated_cores": 1,
+    "selected_backend": "local",
+    "selected_flavor": "1 CPU core",
+    "expected_runtime_minutes": "<1"
   },
-  "claim4": {
-    "family": "adversarial",
-    "pilot_trials": 8,
-    "confirmation_trials": 40,
-    "settings": [
+  "claim4_falsification": {
+    "delta_numerator": 1,
+    "delta_denominator": 10,
+    "s": 2,
+    "hidden_constant_audit": [
       {
-        "s": 4,
-        "d": 40,
-        "r": 16,
-        "iterations": 8,
-        "sample_grid": [1280, 2560, 5120, 10240]
+        "sample": 1,
+        "restarts": 1,
+        "iterations": 1
       },
       {
-        "s": 6,
-        "d": 72,
-        "r": 36,
-        "iterations": 12,
-        "sample_grid": [2304, 4608, 9216, 18432]
+        "sample": 10,
+        "restarts": 5,
+        "iterations": 10
+      },
+      {
+        "sample": 100,
+        "restarts": 25,
+        "iterations": 50
       }
     ]
   }

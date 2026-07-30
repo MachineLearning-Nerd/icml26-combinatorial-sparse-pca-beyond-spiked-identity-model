@@ -22,15 +22,19 @@
     "sample_order": "s^2 log(s) log(d/delta)",
     "runtime_order": "n d^2"
   },
-  "acceptance": [
-    "all Model-2 assumptions numerically audited",
-    "non-spherical nuisance spectrum",
-    "sample threshold calibrated independently of the theorem formula",
-    "binomial confidence interval reported over deterministic seeds",
-    "negative controls rejected for their intended reasons",
-    "independent checker exits nonzero on tampered evidence",
-    "Theorem 2 to Theorem 1 specialization checked symbolically"
-  ],
+  "falsification_contract": {
+    "quantifier": "for every finite positive hidden constant in n, r, and T",
+    "counterexample": "a bounded mean-zero signed-coordinate distribution with total nonzero mass delta/(4n)",
+    "required_checks": [
+      "distribution is 1-sub-Gaussian",
+      "covariance is PSD",
+      "top eigenvector is at most s-sparse",
+      "lambda2/lambda1 equals 0.9",
+      "success probability is at most delta/2",
+      "formal Theorem 2 is explicitly excluded from the verdict",
+      "independent checker exits nonzero on tampered evidence"
+    ]
+  },
   "historical_baseline_status": "TOY",
-  "current_status": "BLOCKED_PENDING_EXPERIMENTS"
+  "current_status": "PENDING_COUNTEREXAMPLE_CHECK"
 }

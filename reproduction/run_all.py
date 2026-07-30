@@ -30,7 +30,9 @@ from core import (
     sin2_angle,
 )
 from check_claim4 import check_claim4
+from check_falsification import check_falsification
 import claim4 as claim4_experiment
+import falsify_claim4
 
 def model_audit(covariance: np.ndarray, vector: np.ndarray) -> dict:
     eigenvalues = np.linalg.eigvalsh(covariance)
@@ -147,8 +149,12 @@ def independent_checker(payload: dict) -> tuple[bool, list[str]]:
     if payload["stage"] == "historical_baseline":
         if payload["claims"]["claim_4"]["status"] != "TOY":
             failures.append("historical Claim 4 must remain labeled TOY")
-    else:
+    elif payload["stage"] == "claim4_calibration":
         claim4_passed, claim4_failures = check_claim4(payload["claims"]["claim_4"])
+        if not claim4_passed:
+            failures.extend(claim4_failures)
+    else:
+        claim4_passed, claim4_failures = check_falsification(payload["claims"]["claim_4"])
         if not claim4_passed:
             failures.extend(claim4_failures)
     return not failures, failures
@@ -165,7 +171,11 @@ def main() -> int:
         "claim_4": (
             claim_4_historical(seed)
             if config["stage"] == "historical_baseline"
-            else claim4_experiment.run(config["claim4"], seed)
+            else (
+                claim4_experiment.run(config["claim4"], seed)
+                if config["stage"] == "claim4_calibration"
+                else falsify_claim4.run(config["claim4_falsification"], seed)
+            )
         ),
         "claim_5": claim_5(seed),
     }
@@ -193,8 +203,12 @@ def main() -> int:
     tampered = json.loads(json.dumps(payload))
     if config["stage"] == "historical_baseline":
         tampered["claims"]["claim_1"]["status"] = "FAILED"
-    else:
+    elif config["stage"] == "claim4_calibration":
         tampered["claims"]["claim_4"]["algorithm_audit"]["fresh_blocks"] = False
+    else:
+        tampered["claims"]["claim_4"]["instances"][0]["distribution"][
+            "total_nonzero_probability"
+        ] = "1/2"
     tampered_rejected = not independent_checker(tampered)[0]
     payload["independent_checker"] = {
         "passed": checker_passed,
