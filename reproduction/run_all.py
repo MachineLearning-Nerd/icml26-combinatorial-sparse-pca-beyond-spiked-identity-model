@@ -8,11 +8,14 @@ import sys
 import time
 from pathlib import Path
 
-os.environ.setdefault("OMP_NUM_THREADS", "1")
-os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
-os.environ.setdefault("MKL_NUM_THREADS", "1")
-os.environ.setdefault("VECLIB_MAXIMUM_THREADS", "1")
-os.environ.setdefault("NUMEXPR_NUM_THREADS", "1")
+ROOT = Path(__file__).resolve().parents[1]
+CONFIG = json.loads((ROOT / "reproduction" / "config.json").read_text())
+THREAD_CAP = str(CONFIG.get("compute_plan", {}).get("estimated_cores", 1))
+os.environ["OMP_NUM_THREADS"] = THREAD_CAP
+os.environ["OPENBLAS_NUM_THREADS"] = THREAD_CAP
+os.environ["MKL_NUM_THREADS"] = THREAD_CAP
+os.environ["VECLIB_MAXIMUM_THREADS"] = THREAD_CAP
+os.environ["NUMEXPR_NUM_THREADS"] = THREAD_CAP
 
 import numpy as np
 
@@ -28,10 +31,6 @@ from core import (
 )
 from check_claim4 import check_claim4
 import claim4 as claim4_experiment
-
-
-ROOT = Path(__file__).resolve().parents[1]
-
 
 def model_audit(covariance: np.ndarray, vector: np.ndarray) -> dict:
     eigenvalues = np.linalg.eigvalsh(covariance)
@@ -157,7 +156,7 @@ def independent_checker(payload: dict) -> tuple[bool, list[str]]:
 
 def main() -> int:
     started = time.perf_counter()
-    config = json.loads((ROOT / "reproduction" / "config.json").read_text())
+    config = CONFIG
     seed = int(config["seed"])
     claims = {
         "claim_1": claim_1(seed),
@@ -177,9 +176,14 @@ def main() -> int:
         "seed": seed,
         "claims": claims,
         "compute": {
-            "requested_cores": 1,
+            "estimated_cores": config.get("compute_plan", {}).get("estimated_cores", 1),
+            "selected_backend": config.get("compute_plan", {}).get("selected_backend", "local"),
+            "selected_flavor": config.get("compute_plan", {}).get("selected_flavor", "local"),
+            "expected_runtime_minutes": config.get("compute_plan", {}).get(
+                "expected_runtime_minutes", "<2"
+            ),
             "actual_logical_cpus_visible": os.cpu_count(),
-            "blas_thread_cap": 1,
+            "blas_thread_cap": int(THREAD_CAP),
             "machine": platform.machine(),
             "python": sys.version.split()[0],
             "numpy": np.__version__,

@@ -1,6 +1,12 @@
 {
   "stage": "claim4_calibration",
   "seed": 260302607,
+  "compute_plan": {
+    "estimated_cores": 8,
+    "selected_backend": "hf",
+    "selected_flavor": "cpu-upgrade",
+    "expected_runtime_minutes": "2-15 (uncertain)"
+  },
   "claim4": {
     "family": "rotated",
     "pilot_trials": 8,
