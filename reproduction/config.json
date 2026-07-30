@@ -1,5 +1,25 @@
 {
-  "stage": "historical_baseline",
-  "seed": 260302607
+  "stage": "claim4_calibration",
+  "seed": 260302607,
+  "claim4": {
+    "family": "adversarial",
+    "pilot_trials": 8,
+    "confirmation_trials": 40,
+    "settings": [
+      {
+        "s": 4,
+        "d": 40,
+        "r": 16,
+        "iterations": 8,
+        "sample_grid": [1280, 2560, 5120, 10240]
+      },
+      {
+        "s": 6,
+        "d": 72,
+        "r": 36,
+        "iterations": 12,
+        "sample_grid": [2304, 4608, 9216, 18432]
+      }
+    ]
+  }
 }
-
