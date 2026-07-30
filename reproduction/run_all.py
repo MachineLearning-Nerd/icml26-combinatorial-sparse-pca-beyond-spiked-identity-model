@@ -146,6 +146,27 @@ def independent_checker(payload: dict) -> tuple[bool, list[str]]:
     for claim, status in expected.items():
         if payload["claims"][claim]["status"] != status:
             failures.append(f"{claim} status is not {status}")
+    claim1 = payload["claims"]["claim_1"]
+    if claim1["model_audit"]["lambda2_over_lambda1"] > 0.9 + 1e-9:
+        failures.append("claim_1 violates the Model-2 eigengap")
+    if any(row["support_overlap"] != 0 or row["sin2"] < 0.99 for row in claim1["trials"]):
+        failures.append("claim_1 does not miss the full support")
+    claim2 = payload["claims"]["claim_2"]
+    if claim2["model_audit"]["lambda2_over_lambda1"] > 0.9 + 1e-9:
+        failures.append("claim_2 violates the Model-2 eigengap")
+    if any(row["sin2"] < 0.99 for row in claim2["trials"]):
+        failures.append("claim_2 estimate is not orthogonal")
+    claim3 = payload["claims"]["claim_3"]
+    if claim3["model_audit"]["lambda2_over_lambda1"] > 0.9 + 1e-9:
+        failures.append("claim_3 violates the Model-2 eigengap")
+    if any(row["support_overlap"] > 1 for row in claim3["trials"]):
+        failures.append("claim_3 recovers more than one support coordinate")
+    claim5 = payload["claims"]["claim_5"]
+    if any(
+        row["deflated_top_eigenvector_nnz"] != row["d"]
+        for row in claim5["trials"]
+    ):
+        failures.append("claim_5 deflated eigenvector is not fully dense")
     if payload["stage"] == "historical_baseline":
         if payload["claims"]["claim_4"]["status"] != "TOY":
             failures.append("historical Claim 4 must remain labeled TOY")
@@ -200,20 +221,59 @@ def main() -> int:
         },
     }
     checker_passed, checker_failures = independent_checker(payload)
-    tampered = json.loads(json.dumps(payload))
+    mutations = {
+        "claim_1": lambda value: value["claims"]["claim_1"]["trials"][0].update(
+            support_overlap=1
+        ),
+        "claim_2": lambda value: value["claims"]["claim_2"]["trials"][0].update(
+            sin2=0.0
+        ),
+        "claim_3": lambda value: value["claims"]["claim_3"]["trials"][0].update(
+            support_overlap=2
+        ),
+        "claim_5": lambda value: value["claims"]["claim_5"]["trials"][0].update(
+            deflated_top_eigenvector_nnz=7
+        ),
+    }
+    control_descriptions = {
+        "claim_1": "set first support overlap from 0 to 1",
+        "claim_2": "set first orthogonality sin2 from 1 to 0",
+        "claim_3": "set first support overlap from 1 to 2",
+        "claim_5": "set first dense support count from 8 to 7",
+    }
     if config["stage"] == "historical_baseline":
-        tampered["claims"]["claim_1"]["status"] = "FAILED"
+        mutations["claim_4"] = lambda value: value["claims"]["claim_4"].update(
+            status="FAILED"
+        )
+        control_descriptions["claim_4"] = "change historical status from TOY to FAILED"
     elif config["stage"] == "claim4_calibration":
-        tampered["claims"]["claim_4"]["algorithm_audit"]["fresh_blocks"] = False
+        mutations["claim_4"] = lambda value: value["claims"]["claim_4"][
+            "algorithm_audit"
+        ].update(fresh_blocks=False)
+        control_descriptions["claim_4"] = "mark the fresh-block audit false"
     else:
-        tampered["claims"]["claim_4"]["instances"][0]["distribution"][
-            "total_nonzero_probability"
-        ] = "1/2"
-    tampered_rejected = not independent_checker(tampered)[0]
+        mutations["claim_4"] = lambda value: value["claims"]["claim_4"][
+            "instances"
+        ][0]["distribution"].update(total_nonzero_probability="1/2")
+        control_descriptions["claim_4"] = "change rare-event mass from delta/(4n) to 1/2"
+    negative_controls = {}
+    for claim, mutate in mutations.items():
+        tampered = json.loads(json.dumps(payload))
+        mutate(tampered)
+        rejected = not independent_checker(tampered)[0]
+        negative_controls[claim] = {
+            "mutation": control_descriptions[claim],
+            "tampered_evidence_rejected": rejected,
+        }
+    all_tampered_rejected = all(
+        control["tampered_evidence_rejected"]
+        for control in negative_controls.values()
+    )
     payload["independent_checker"] = {
         "passed": checker_passed,
         "failures": checker_failures,
-        "negative_control_tampered_evidence_rejected": tampered_rejected,
+        "negative_controls": negative_controls,
+        "all_tampered_evidence_rejected": all_tampered_rejected,
     }
     payload["runtime_seconds"] = time.perf_counter() - started
     print("EVIDENCE_JSON_BEGIN")
@@ -223,10 +283,10 @@ def main() -> int:
     print(
         "EVAL.md: Claims 1,2,3,5 VERIFIED; "
         f"Claim 4 status={claim4_status}. "
-        f"checker_passed={checker_passed}; tamper_control_rejected={tampered_rejected}; "
+        f"checker_passed={checker_passed}; all_tamper_controls_rejected={all_tampered_rejected}; "
         f"runtime_seconds={payload['runtime_seconds']:.3f}"
     )
-    return 0 if checker_passed and tampered_rejected else 1
+    return 0 if checker_passed and all_tampered_rejected else 1
 
 
 if __name__ == "__main__":

@@ -1,0 +1,58 @@
+{
+  "paper": "arXiv:2603.02607v1",
+  "claim": 4,
+  "status": "FALSIFIED",
+  "run_id": "167a3642-d164-40e6-827a-651f42cc2911",
+  "git_sha": "b55e4b89209a75104c53bf56e3ee53c6843dec90",
+  "seed": 260302607,
+  "delta": 0.1,
+  "instances": [
+    {
+      "hidden_constants": {"sample": 1, "restarts": 1, "iterations": 1},
+      "s": 2,
+      "d": 40,
+      "n": 17,
+      "r": 4,
+      "T": 1,
+      "lambda2_over_lambda1": 0.9,
+      "all_zero_probability_lower": 0.975,
+      "success_probability_upper": 0.05,
+      "required_success_probability": 0.9
+    },
+    {
+      "hidden_constants": {"sample": 10, "restarts": 5, "iterations": 10},
+      "s": 2,
+      "d": 41,
+      "n": 167,
+      "r": 20,
+      "T": 7,
+      "lambda2_over_lambda1": 0.9,
+      "all_zero_probability_lower": 0.975,
+      "success_probability_upper": 0.04939024390243903,
+      "required_success_probability": 0.9
+    },
+    {
+      "hidden_constants": {"sample": 100, "restarts": 25, "iterations": 50},
+      "s": 2,
+      "d": 201,
+      "n": 2109,
+      "r": 100,
+      "T": 35,
+      "lambda2_over_lambda1": 0.9,
+      "all_zero_probability_lower": 0.975,
+      "success_probability_upper": 0.029975124378109452,
+      "required_success_probability": 0.9
+    }
+  ],
+  "runtime_seconds": 1.5842716250335798,
+  "compute": {
+    "estimated_cores": 1,
+    "backend": "local",
+    "selected_flavor": "1 CPU core",
+    "logical_cpus_visible": 8,
+    "blas_thread_cap": 1,
+    "python": "3.12.11",
+    "numpy": "2.3.2",
+    "machine": "arm64"
+  }
+}

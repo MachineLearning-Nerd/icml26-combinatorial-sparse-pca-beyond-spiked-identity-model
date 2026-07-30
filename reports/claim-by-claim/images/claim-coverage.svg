@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="470" viewBox="0 0 960 470">
+  <rect width="960" height="470" fill="#f8fafc"/>
+  <text x="48" y="54" font-family="sans-serif" font-size="27" font-weight="700" fill="#172033">Cumulative claim-by-claim evidence</text>
+  <text x="48" y="86" font-family="sans-serif" font-size="16" fill="#536174">Every accepted check reran in the same fixed command</text>
+  <g font-family="sans-serif" font-size="17">
+    <rect x="48" y="118" width="864" height="54" rx="8" fill="#dcfce7"/>
+    <text x="70" y="151" fill="#14532d">Claim 1 · diagonal thresholding</text><text x="882" y="151" text-anchor="end" font-weight="700" fill="#166534">VERIFIED</text>
+    <rect x="48" y="182" width="864" height="54" rx="8" fill="#dcfce7"/>
+    <text x="70" y="215" fill="#14532d">Claim 2 · covariance thresholding</text><text x="882" y="215" text-anchor="end" font-weight="700" fill="#166534">VERIFIED</text>
+    <rect x="48" y="246" width="864" height="54" rx="8" fill="#dcfce7"/>
+    <text x="70" y="279" fill="#14532d">Claim 3 · greedy correlation</text><text x="882" y="279" text-anchor="end" font-weight="700" fill="#166534">VERIFIED</text>
+    <rect x="48" y="310" width="864" height="54" rx="8" fill="#fee2e2"/>
+    <text x="70" y="343" fill="#7f1d1d">Claim 4 · scale-free RTPM guarantee</text><text x="882" y="343" text-anchor="end" font-weight="700" fill="#991b1b">FALSIFIED</text>
+    <rect x="48" y="374" width="864" height="54" rx="8" fill="#dcfce7"/>
+    <text x="70" y="407" fill="#14532d">Claim 5 · deflation barrier</text><text x="882" y="407" text-anchor="end" font-weight="700" fill="#166534">VERIFIED</text>
+  </g>
+  <text x="48" y="455" font-family="sans-serif" font-size="14" fill="#536174">FALSIFIED is a full-credit evidence status when the exact assumptions and quantifiers are contradicted.</text>
+</svg>

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "title": "Repro - Combinatorial Sparse PCA Beyond Spiked Identity",
+  "emoji": "🎯",
+  "space_id": "DineshAI/Kk5UZgkWFx",
+  "paper": "arXiv:2603.02607v1",
+  "tags": [
+    "icml2026-repro",
+    "paper-Kk5UZgkWFx"
+  ],
+  "updated_at": "2026-07-30T17:16:47+00:00",
+  "root": {
+    "slug": "index",
+    "title": "Repro - Combinatorial Sparse PCA Beyond Spiked Identity",
+    "file": "pages/index.md",
+    "children": [
+      {
+        "slug": "current-verification",
+        "title": "Current verification",
+        "file": "pages/current-verification/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-4-falsification",
+        "title": "Claim 4 falsification",
+        "file": "pages/claim-4-falsification/page.md",
+        "children": []
+      },
+      {
+        "slug": "current-report",
+        "title": "Illustrated report",
+        "file": "pages/current-report/page.md",
+        "children": []
+      },
+      {
+        "slug": "visibility-matrix",
+        "title": "Evidence visibility matrix",
+        "file": "pages/visibility-matrix/page.md",
+        "children": []
+      },
+      {
+        "slug": "release-report",
+        "title": "Release report and forecast",
+        "file": "pages/release-report/page.md",
+        "children": []
+      },
+      {
+        "slug": "overview",
+        "title": "Historical overview",
+        "file": "pages/overview/page.md",
+        "children": []
+      },
+      {
+        "slug": "claims",
+        "title": "Historical claim list",
+        "file": "pages/claims/page.md",
+        "children": []
+      },
+      {
+        "slug": "evidence",
+        "title": "Historical evidence",
+        "file": "pages/evidence/page.md",
+        "children": []
+      },
+      {
+        "slug": "conclusion",
+        "title": "Historical conclusion",
+        "file": "pages/conclusion/page.md",
+        "children": []
+      },
+      {
+        "slug": "verification-run",
+        "title": "Historical rejected baseline",
+        "file": "pages/verification-run/page.md",
+        "children": []
+      }
+    ]
+  },
+  "agent_view_tokens": 5000,
+  "revision": "current-proof-certificate"
+}

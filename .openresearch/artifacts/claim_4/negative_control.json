@@ -1,0 +1,8 @@
+{
+  "name": "tampered rare-event mass",
+  "mutation": "instances[0].distribution.total_nonzero_probability = 1/2",
+  "expected": "independent checker rejects",
+  "observed": "rejected",
+  "passed": true,
+  "run_id": "167a3642-d164-40e6-827a-651f42cc2911"
+}

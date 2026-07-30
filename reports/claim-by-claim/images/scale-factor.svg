@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440">
+  <rect width="960" height="440" fill="#f8fafc"/>
+  <text x="50" y="56" font-family="sans-serif" font-size="27" font-weight="700" fill="#172033">The omitted scale factor grows with the hidden constants</text>
+  <text x="50" y="88" font-family="sans-serif" font-size="16" fill="#536174">(σ²/λ₁)² from formal Theorem 2; logarithmic horizontal scale</text>
+  <line x1="205" y1="130" x2="205" y2="365" stroke="#94a3b8" stroke-width="2"/>
+  <text x="182" y="171" text-anchor="end" font-family="sans-serif" font-size="17" fill="#172033">sample C = 1</text>
+  <text x="182" y="245" text-anchor="end" font-family="sans-serif" font-size="17" fill="#172033">sample C = 10</text>
+  <text x="182" y="319" text-anchor="end" font-family="sans-serif" font-size="17" fill="#172033">sample C = 100</text>
+  <rect x="205" y="145" width="315" height="38" rx="6" fill="#0ea5e9"/>
+  <rect x="205" y="219" width="470" height="38" rx="6" fill="#8b5cf6"/>
+  <rect x="205" y="293" width="650" height="38" rx="6" fill="#dc2626"/>
+  <text x="532" y="171" font-family="sans-serif" font-size="16" font-weight="700" fill="#075985">6.03 × 10⁸</text>
+  <text x="687" y="245" font-family="sans-serif" font-size="16" font-weight="700" fill="#5b21b6">6.11 × 10¹⁰</text>
+  <text x="865" y="319" font-family="sans-serif" font-size="16" font-weight="700" fill="#991b1b">2.33 × 10¹⁴</text>
+  <text x="50" y="405" font-family="sans-serif" font-size="15" fill="#536174">Informal Theorem 1 omits this factor; formal Theorem 2 retains it.</text>
+</svg>

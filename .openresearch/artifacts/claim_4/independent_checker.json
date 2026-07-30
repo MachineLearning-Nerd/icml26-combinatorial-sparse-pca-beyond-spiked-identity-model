@@ -1,0 +1,19 @@
+{
+  "run_id": "167a3642-d164-40e6-827a-651f42cc2911",
+  "passed": true,
+  "failures": [],
+  "checks": [
+    "mean zero",
+    "positive semidefinite covariance",
+    "lambda2/lambda1 <= 0.9",
+    "top eigenvector sparsity",
+    "boundedness and 1-sub-Gaussian certificate",
+    "rare-event mass equals delta/(4n)",
+    "all-zero union bound",
+    "indistinguishability bound equals 1/d",
+    "unconditional success <= delta/2",
+    "unconditional success < 1-delta",
+    "r <= d",
+    "formal Theorem 2 not claimed contradicted"
+  ]
+}

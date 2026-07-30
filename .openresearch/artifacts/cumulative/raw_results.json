@@ -1,0 +1,51 @@
+{
+  "run_id": "167a3642-d164-40e6-827a-651f42cc2911",
+  "git_sha": "b55e4b89209a75104c53bf56e3ee53c6843dec90",
+  "claims": [
+    {
+      "claim": 1,
+      "status": "VERIFIED",
+      "settings": [
+        {"s": 3, "support_overlap": 0, "sin2": 1.0},
+        {"s": 5, "support_overlap": 0, "sin2": 1.0},
+        {"s": 8, "support_overlap": 0, "sin2": 1.0}
+      ]
+    },
+    {
+      "claim": 2,
+      "status": "VERIFIED",
+      "settings": [
+        {"s": 15, "n": 72000, "threshold": 0.045, "sin2": 1.0},
+        {"s": 20, "n": 128000, "threshold": 0.035, "sin2": 1.0}
+      ]
+    },
+    {
+      "claim": 3,
+      "status": "VERIFIED",
+      "settings": [
+        {"s": 4, "support_overlap": 1},
+        {"s": 6, "support_overlap": 1},
+        {"s": 8, "support_overlap": 1}
+      ]
+    },
+    {
+      "claim": 4,
+      "status": "FALSIFIED",
+      "required_success": 0.9,
+      "certified_success_upper": 0.05,
+      "formal_theorem_2_contradicted": false
+    },
+    {
+      "claim": 5,
+      "status": "VERIFIED",
+      "settings": [
+        {"d": 8, "deflated_top_eigenvector_nnz": 8},
+        {"d": 12, "deflated_top_eigenvector_nnz": 12},
+        {"d": 20, "deflated_top_eigenvector_nnz": 20}
+      ]
+    }
+  ],
+  "independent_checker_passed": true,
+  "tamper_control_rejected": true,
+  "runtime_seconds": 1.5842716250335798
+}
