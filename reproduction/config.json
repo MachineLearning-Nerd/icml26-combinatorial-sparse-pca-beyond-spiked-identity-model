@@ -2,7 +2,7 @@
   "stage": "claim4_calibration",
   "seed": 260302607,
   "claim4": {
-    "family": "adversarial",
+    "family": "rotated",
     "pilot_trials": 8,
     "confirmation_trials": 40,
     "settings": [
