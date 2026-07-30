@@ -26,6 +26,8 @@ from core import (
     sample_gaussian,
     sin2_angle,
 )
+from check_claim4 import check_claim4
+import claim4 as claim4_experiment
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -143,8 +145,13 @@ def independent_checker(payload: dict) -> tuple[bool, list[str]]:
     for claim, status in expected.items():
         if payload["claims"][claim]["status"] != status:
             failures.append(f"{claim} status is not {status}")
-    if payload["claims"]["claim_4"]["status"] != "TOY":
-        failures.append("historical Claim 4 must remain labeled TOY")
+    if payload["stage"] == "historical_baseline":
+        if payload["claims"]["claim_4"]["status"] != "TOY":
+            failures.append("historical Claim 4 must remain labeled TOY")
+    else:
+        claim4_passed, claim4_failures = check_claim4(payload["claims"]["claim_4"])
+        if not claim4_passed:
+            failures.extend(claim4_failures)
     return not failures, failures
 
 
@@ -156,7 +163,11 @@ def main() -> int:
         "claim_1": claim_1(seed),
         "claim_2": claim_2(seed),
         "claim_3": claim_3(seed),
-        "claim_4": claim_4_historical(seed),
+        "claim_4": (
+            claim_4_historical(seed)
+            if config["stage"] == "historical_baseline"
+            else claim4_experiment.run(config["claim4"], seed)
+        ),
         "claim_5": claim_5(seed),
     }
     payload = {
@@ -176,7 +187,10 @@ def main() -> int:
     }
     checker_passed, checker_failures = independent_checker(payload)
     tampered = json.loads(json.dumps(payload))
-    tampered["claims"]["claim_1"]["status"] = "FAILED"
+    if config["stage"] == "historical_baseline":
+        tampered["claims"]["claim_1"]["status"] = "FAILED"
+    else:
+        tampered["claims"]["claim_4"]["algorithm_audit"]["fresh_blocks"] = False
     tampered_rejected = not independent_checker(tampered)[0]
     payload["independent_checker"] = {
         "passed": checker_passed,
@@ -187,8 +201,10 @@ def main() -> int:
     print("EVIDENCE_JSON_BEGIN")
     print(json.dumps(payload, indent=2, sort_keys=True))
     print("EVIDENCE_JSON_END")
+    claim4_status = claims["claim_4"]["status"]
     print(
-        "EVAL.md: Claims 1,2,3,5 VERIFIED; Claim 4 is Historical rejected baseline / TOY. "
+        "EVAL.md: Claims 1,2,3,5 VERIFIED; "
+        f"Claim 4 status={claim4_status}. "
         f"checker_passed={checker_passed}; tamper_control_rejected={tampered_rejected}; "
         f"runtime_seconds={payload['runtime_seconds']:.3f}"
     )
@@ -197,4 +213,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
