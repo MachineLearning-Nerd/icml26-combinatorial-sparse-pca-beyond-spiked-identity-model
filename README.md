@@ -38,6 +38,10 @@ used as evidence.
 The previous live judge score remains **9/10**. A possible **10/10** is a
 forecast pending a new live evaluation, not a claimed score.
 
+The additive release is published at Hugging Face revision
+[`83fadf46ea4560d5ae3b6fd36771b459f1754e25`](https://huggingface.co/spaces/DineshAI/Kk5UZgkWFx/commit/83fadf46ea4560d5ae3b6fd36771b459f1754e25)
+and is **awaiting the live judge**.
+
 ## Local use
 
 ```bash
