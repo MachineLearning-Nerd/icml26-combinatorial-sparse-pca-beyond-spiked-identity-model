@@ -1,0 +1,36 @@
+{
+  "claim_id": 4,
+  "paper_anchor": "https://ar5iv.labs.arxiv.org/html/2603.02607#Thmtheorem1",
+  "model": {
+    "distribution": "i.i.d. sub-Gaussian",
+    "covariance": "positive semidefinite",
+    "top_eigenvector": "unit and at most s-sparse",
+    "eigengap": "lambda2 <= 0.9 lambda1"
+  },
+  "algorithm": {
+    "name": "RTPM / Algorithm 1",
+    "required_steps": [
+      "split samples into T fresh blocks",
+      "restart from every standard basis vector",
+      "apply top-r truncation and normalization after every block",
+      "select the final candidate by empirical Rayleigh quotient"
+    ]
+  },
+  "target": {
+    "correlation_squared": ">= 0.9",
+    "success_probability": ">= 1-delta",
+    "sample_order": "s^2 log(s) log(d/delta)",
+    "runtime_order": "n d^2"
+  },
+  "acceptance": [
+    "all Model-2 assumptions numerically audited",
+    "non-spherical nuisance spectrum",
+    "sample threshold calibrated independently of the theorem formula",
+    "binomial confidence interval reported over deterministic seeds",
+    "negative controls rejected for their intended reasons",
+    "independent checker exits nonzero on tampered evidence",
+    "Theorem 2 to Theorem 1 specialization checked symbolically"
+  ],
+  "historical_baseline_status": "TOY",
+  "current_status": "BLOCKED_PENDING_EXPERIMENTS"
+}
