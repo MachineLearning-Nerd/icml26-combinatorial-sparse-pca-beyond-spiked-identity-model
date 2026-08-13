@@ -101,6 +101,6 @@ revision. A possible 10/10 is only a forecast, never a claimed score.
 
 Important branches:
 
-- [Frozen judged baseline](https://github.com/MachineLearning-Nerd/icml26-repro-Kk5UZgkWFx-combinatorial-sparse-pca-beyond-the-spiked-identity-model/tree/orx/judged-reproduction-baseline)
-- [Frozen Claim 4 quantifier audit](https://github.com/MachineLearning-Nerd/icml26-repro-Kk5UZgkWFx-combinatorial-sparse-pca-beyond-the-spiked-identity-model/tree/orx/claim-4-rare-signal-quantifier-audit)
-- [Cumulative release candidate](https://github.com/MachineLearning-Nerd/icml26-repro-Kk5UZgkWFx-combinatorial-sparse-pca-beyond-the-spiked-identity-model/tree/orx/cumulative-release-candidate)
+- [Frozen judged baseline](https://github.com/MachineLearning-Nerd/icml26-combinatorial-sparse-pca-beyond-spiked-identity-model/tree/audit/judged-baseline)
+- [Frozen Claim 4 quantifier audit](https://github.com/MachineLearning-Nerd/icml26-combinatorial-sparse-pca-beyond-spiked-identity-model/tree/audit/claim-4-rare-signal)
+- [Cumulative release candidate](https://github.com/MachineLearning-Nerd/icml26-combinatorial-sparse-pca-beyond-spiked-identity-model/tree/release/cumulative-candidate)
