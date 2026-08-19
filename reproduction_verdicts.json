@@ -1,0 +1,27 @@
+{
+  "schema_version": "1",
+  "overall_status": "PARTIAL_CLAIMS_1_TO_3_AND_5_VERIFIED_CLAIM_4_SCALE_FREE_INFORMAL_RTPM_FALSIFIED",
+  "source_scope": "arXiv:2603.02607v1",
+  "cumulative_evidence": "PASS",
+  "claims": {
+    "C1": "VERIFIED_SCOPED",
+    "C2": "VERIFIED_SCOPED",
+    "C3": "VERIFIED_SCOPED",
+    "C4": "FALSIFIED_SCOPED",
+    "C5": "VERIFIED_SCOPED"
+  },
+  "claim_4_boundary": {
+    "required_success": 0.9,
+    "certified_success_upper": 0.05,
+    "formal_theorem_2_contradicted": false
+  },
+  "historical_score": {
+    "points": 9,
+    "total": 10,
+    "current_score_claim": false,
+    "forecast": "10/10"
+  },
+  "publication_allowed": false,
+  "official_author_endorsement": false
+}
+

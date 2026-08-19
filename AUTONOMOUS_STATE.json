@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "repository": "MachineLearning-Nerd/icml26-combinatorial-sparse-pca-beyond-spiked-identity-model",
+  "paper": "Combinatorial Sparse PCA Beyond the Spiked Identity Model",
+  "source_scope": "arXiv:2603.02607v1",
+  "overall_status": "PARTIAL_CLAIMS_1_TO_3_AND_5_VERIFIED_CLAIM_4_SCALE_FREE_INFORMAL_RTPM_FALSIFIED",
+  "claim_statuses": {
+    "C1": "VERIFIED_SCOPED",
+    "C2": "VERIFIED_SCOPED",
+    "C3": "VERIFIED_SCOPED",
+    "C4": "FALSIFIED_SCOPED",
+    "C5": "VERIFIED_SCOPED"
+  },
+  "current_score_claim": false,
+  "publication_allowed": false,
+  "official_author_endorsement": false,
+  "canonical_identity": {
+    "name": "MachineLearning-Nerd",
+    "email": "MachineLearning-Nerd@users.noreply.github.com"
+  },
+  "recovery_bundle_sha256": "efed377a1c6da8a5d18d9681293ff957e676027a15e7c36cba9ce7734c59e1bc",
+  "notes": [
+    "Claims 1, 2, 3, and 5 are scoped contract verifications.",
+    "Claim 4 targets only the scale-free informal Theorem 1 / imported RTPM wording.",
+    "Formal Theorem 2 is not contradicted and is outside the falsified scope."
+  ]
+}
+

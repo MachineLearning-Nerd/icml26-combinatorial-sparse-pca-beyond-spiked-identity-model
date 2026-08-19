@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "paper": "Combinatorial Sparse PCA Beyond the Spiked Identity Model",
+  "paper_source": "arXiv:2603.02607v1",
+  "overall_status": "PARTIAL_CLAIMS_1_TO_3_AND_5_VERIFIED_CLAIM_4_SCALE_FREE_INFORMAL_RTPM_FALSIFIED",
+  "claims": [
+    {
+      "id": "C1",
+      "status": "VERIFIED_SCOPED",
+      "evidence": "reproduction/run_all.py",
+      "claim_page": "space_release/pages/current-verification/page.md"
+    },
+    {
+      "id": "C2",
+      "status": "VERIFIED_SCOPED",
+      "evidence": "reproduction/run_all.py",
+      "claim_page": "space_release/pages/current-verification/page.md"
+    },
+    {
+      "id": "C3",
+      "status": "VERIFIED_SCOPED",
+      "evidence": "reproduction/run_all.py",
+      "claim_page": "space_release/pages/current-verification/page.md"
+    },
+    {
+      "id": "C4",
+      "status": "FALSIFIED_SCOPED",
+      "evidence": "reproduction/falsify_claim4.py",
+      "claim_page": "space_release/pages/claim-4-falsification/page.md"
+    },
+    {
+      "id": "C5",
+      "status": "VERIFIED_SCOPED",
+      "evidence": "reproduction/run_all.py",
+      "claim_page": "space_release/pages/current-verification/page.md"
+    }
+  ]
+}
+

@@ -28,6 +28,12 @@ the exact scale-free informal RTPM theorem wording is falsified. This is a
 scoped scientific result: formal Theorem 2 is not contradicted because it
 contains the signal-scale factor omitted by informal Theorem 1.
 
+Overall status: `PARTIAL_CLAIMS_1_TO_3_AND_5_VERIFIED_CLAIM_4_SCALE_FREE_INFORMAL_RTPM_FALSIFIED`.
+This is a scoped v1 audit, not a claim that formal Theorem 2 or every RTPM
+variant is falsified. `publication_allowed=false`, `score_claim=false`, and
+`official_author_endorsement=false` until an independent evaluator judges
+the public revision.
+
 | Release result | Meaning |
 | --- | --- |
 | Claims 1, 2, 3, and 5: **VERIFIED** | The construction, model audit, required metric, and claim-specific control pass. |
@@ -159,6 +165,10 @@ uv run --with marimo==0.16.5 marimo run notebooks/claim4_falsification.py
   doi={10.48550/arXiv.2603.02607}
 }
 ```
+
+Machine-readable citation metadata is also available in
+[`CITATION.cff`](CITATION.cff), and the author note is kept separately in
+[`AUTHOR_THANK_YOU.md`](AUTHOR_THANK_YOU.md).
 
 ## Thank you
 

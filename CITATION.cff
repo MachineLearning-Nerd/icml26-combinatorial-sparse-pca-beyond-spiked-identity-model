@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this reproduction or its audit artifacts, please cite this repository and the original paper."
+type: software
+title: "Independent reproduction of Combinatorial Sparse PCA Beyond the Spiked Identity Model"
+version: "1.0.0"
+date-released: 2026-08-19
+authors:
+  - name: MachineLearning-Nerd
+repository-code: "https://github.com/MachineLearning-Nerd/icml26-combinatorial-sparse-pca-beyond-spiked-identity-model"
+url: "https://github.com/MachineLearning-Nerd/icml26-combinatorial-sparse-pca-beyond-spiked-identity-model"
+abstract: "Scoped reproduction and claim audit of Combinatorial Sparse PCA Beyond the Spiked Identity Model, including four verified counterexample contracts and a narrow falsification of the scale-free informal RTPM claim."
+keywords:
+  - sparse PCA
+  - truncated power method
+  - reproduction
+  - claim audit
+  - high-dimensional statistics
+preferred-citation:
+  type: article
+  title: "Combinatorial Sparse PCA Beyond the Spiked Identity Model"
+  authors:
+    - family-names: Kumar
+      given-names: Syamantak
+    - family-names: Sarkar
+      given-names: Purnamrita
+    - family-names: Tian
+      given-names: Kevin
+    - family-names: Zhang
+      given-names: Peiyuan
+  year: 2026
+  url: "https://arxiv.org/abs/2603.02607"
+
